@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FilteredMapPage } from '../filtered-map-page/filtered-map-page';
 import { NavController, NavParams, Platform, App, Events} from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-//import { HeilbaumPhotoswipeController, PhotoswipeOptions, PhotoswipeItem, HeilbaumPhotoswipe } from "heilbaum-ionic-photoswipe";
+import { HeilbaumPhotoswipeController, PhotoswipeOptions, PhotoswipeItem, HeilbaumPhotoswipe } from "heilbaum-ionic-photoswipe";
 import { FilterService } from '../../providers/filter-service';
 
 /*
@@ -31,9 +31,9 @@ export class DetailPage {
   private svgFill: string;
   private typeIcon: string;
 
-  // Variables PhotoSwipe
-  //protected photoswipeItems: Array<PhotoswipeItem> = [];
-  //protected singlePhotoswipeItem: PhotoswipeItem = null;
+  //Variables PhotoSwipe
+  protected photoswipeItems: Array<PhotoswipeItem> = [];
+  protected singlePhotoswipeItem: PhotoswipeItem = null;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private app: App,
     private platform: Platform, /*protected pswpCtrl: HeilbaumPhotoswipeController,*/
@@ -69,7 +69,7 @@ export class DetailPage {
       "hauteur, largeur, vignette FROM images WHERE essence_id = " + this.wp_id;
 
     this.dbObject.executeSql(select_essence, []).then((data) => {
-      /*this.photoswipeItems = [];
+      this.photoswipeItems = [];
       if (data.rows.length > 0) {
         for (var i = 0; i < data.rows.length; i++) {
           let photoswipeItem = {
@@ -80,12 +80,12 @@ export class DetailPage {
           };
 
           if (data.rows.item(i).vignette == 1) {
-            //this.singlePhotoswipeItem = photoswipeItem;
+            this.singlePhotoswipeItem = photoswipeItem;
           }
 
-          //this.photoswipeItems.push(photoswipeItem);
+          this.photoswipeItems.push(photoswipeItem);
         }
-      }*/
+      }
     }, (error) => {
       console.log("ERROR: " + error.message);
     });
@@ -143,7 +143,7 @@ export class DetailPage {
   }
 
   // Fonction de création de la galerie PhotoSwipe
-  /*protected pswpSingleThumbnail(): void {
+  protected pswpSingleThumbnail(): void {
     let options: PhotoswipeOptions = {
       history: false,
       clickToCloseNonZoomable: false,
@@ -154,7 +154,7 @@ export class DetailPage {
     const pswp: HeilbaumPhotoswipe = this.pswpCtrl.create(this.photoswipeItems, options);
     pswp.present({ animate: false });
     pswp.setLeavingOpts({ animate: false });
-  }*/
+  }
 
   openDetailMap() {
     this.app.getRootNav().push(FilteredMapPage, { essence_id: this.wp_id });
