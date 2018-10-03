@@ -36,12 +36,22 @@ export class ListPage {
 
   // Affichage des informations de l'application et possibilité de mise à jour
   showAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'À propos',
-      subTitle: 'Réalisée par Dimitri Schweizer, Données fournies par Michel Juillard',
-      buttons: [{ text: 'Mettre à jour', handler: () => this.events.publish('update') }, 'OK']
-    });
-    alert.present();
+  let alert = this.alertCtrl.create({
+    title: 'À propos',
+    subTitle: 'Réalisée par Dimitri Schweizer, Données fournies par Michel Juillard',
+    buttons: [
+      {
+        text: 'Mettre à jour',
+        handler: () => {
+          this.events.publish('update');
+        }
+      },
+      {
+        text: 'Ok'
+      }
+    ]
+  });
+  alert.present();
   }
 
   // Récupération de la liste des essences
