@@ -8,6 +8,7 @@ import { SQLite } from '@ionic-native/sqlite';
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { FilterService } from '../providers/filter-service';
+import { Geolocation } from '@ionic-native/geolocation';
 
 
 
@@ -52,6 +53,7 @@ import { FilteredMapPage } from '../pages/filtered-map-page/filtered-map-page';
     File,
     FileTransfer,
     FilterService,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
