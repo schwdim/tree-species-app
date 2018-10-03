@@ -36,7 +36,7 @@ export class DetailPage {
   protected singlePhotoswipeItem: PhotoswipeItem = null;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private app: App,
-    private platform: Platform, /*protected pswpCtrl: HeilbaumPhotoswipeController,*/
+    private platform: Platform, protected pswpCtrl: HeilbaumPhotoswipeController,
     private filters: FilterService, private events: Events, private sqlite: SQLite) {
 
     // Récupération des paramètres

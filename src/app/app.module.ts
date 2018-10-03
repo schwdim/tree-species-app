@@ -9,6 +9,8 @@ import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { FilterService } from '../providers/filter-service';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HeilbaumPhotoswipeController, HeilbaumPhotoswipeModule } from "heilbaum-ionic-photoswipe";
+
 
 
 
@@ -34,7 +36,8 @@ import { FilteredMapPage } from '../pages/filtered-map-page/filtered-map-page';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HeilbaumPhotoswipeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,6 +57,7 @@ import { FilteredMapPage } from '../pages/filtered-map-page/filtered-map-page';
     FileTransfer,
     FilterService,
     Geolocation,
+    HeilbaumPhotoswipeController,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
