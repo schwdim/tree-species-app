@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><span class="large" [innerHTML]="nom"></span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <img tappable
+      [alt]="singlePhotoswipeItem?.title"
+      [src]="singlePhotoswipeItem?.src"
+      [title]="singlePhotoswipeItem?.title"
+      [width]="singlePhotoswipeItem?.w"
+      (click)="pswpSingleThumbnail()" />
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button block clear (click)="filterType()">
+              <div class="button-content">
+                <i [attr.class]="typeIcon"></i>
+                <label>{{type}}</label>
+              </div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block clear (click)="filterCouleur()">
+              <div class="button-content">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                  <path [attr.fill]="svgFill" [attr.d]="svgPoints" />
+                </svg>
+                <label>Corolle</label>
+              </div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block clear (click)="openDetailMap()">
+              <div class="button-content">
+                <i class="mdi mdi-map-marker mdi-24px"></i>
+                <label>Carte</label>
+              </div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <div class="separator"></div>
+
+    <ion-item class="details">
+      <h3>Nom latin</h3>
+      <p><span class="large" [innerHTML]="nom_latin"></span></p>
+    </ion-item>
+
+    <ion-item *ngIf="nom_alias" class="details">
+      <h3>Nom alias</h3>
+      <p><span class="large" [innerHTML]="nom_alias"></span></p>
+    </ion-item>
+
+    <ion-item class="details">
+      <h3>Famille</h3>
+      <p><span class="large" [innerHTML]="famille"></span></p>
+    </ion-item>
+
+    <div class="separator"></div>
+
+    <ion-item text-wrap>
+      <p><span class="large" [innerHTML]="description"></span></p>
+    </ion-item>
+
+</ion-content>

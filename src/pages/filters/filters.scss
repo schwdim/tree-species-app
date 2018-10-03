@@ -1,0 +1,30 @@
+page-filters {
+  label {
+    font-size: 9px;
+  }
+
+  .color,
+  .order,
+  .types {
+    padding-bottom: 15px;
+  }
+
+  .color button,
+  .order button,
+  .types button {
+    height: 4.5rem;
+  }
+
+  i,
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .content-ios {
+    .color .button-ios {
+      padding: 0 0;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+page-detail {
+  .button {
+    height: 4.5rem;
+  }
+
+  .button-content {
+    padding-bottom: 5px;
+  }
+
+  .scroll-content {
+    padding: 0px !important;
+  }
+
+  ion-item .item-inner {
+    border: 0px !important;
+  }
+
+  ion-item p {
+    font-size: 1.5rem !important;
+  }
+
+  .separator {
+    margin: 0px 13px;
+  }
+
+  i,
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  h3 {
+    margin-top: 0px !important;
+    font-size: 1.3rem !important;
+    font-weight: bold;
+  }
+
+  .separator {
+    margin-bottom: 1rem;
+    border-bottom: 1px #E7E7E7 solid;
+  }
+
+  .label {
+    margin: 5px 8px;
+  }
+
+  .details .label {
+    padding-bottom: 1rem;
+  }
+
+
+  .content-ios {
+    .button {
+      height: 4.2rem;
+    }
+  }
+
+  .content-md {
+
+    ion-label .label {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

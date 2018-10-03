@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Liste</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showAlert()">
+        <ion-icon name="information"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-searchbar (ionInput)="searchEssences($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let essence of essences" (click)="openDetail(essence.wp_id)">
+      <ion-thumbnail item-left>
+        <img [src]="essence.chemin" >
+      </ion-thumbnail>
+      <h2><span class="large" [innerHTML]="essence.nom"></span></h2>
+      <p><span class="large" [innerHTML]="essence.nom_latin"></span><p>
+      <p>Famille des <span class="large" [innerHTML]="essence.famille"></span></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

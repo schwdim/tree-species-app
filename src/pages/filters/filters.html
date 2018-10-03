@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Filtres
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="order">
+    <h3>Trier par</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button block (click)="filtreNomFR()" [outline]="aaz_francais == 0">
+              <div class="button-content">
+                <i [attr.class]="frIcon"></i>
+                <label>Français</label>
+              </div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block (click)="filtreNomLAT()" [outline]="aaz_latin == 0">
+              <div class="button-content">
+                <i [attr.class]="latIcon"></i>
+                <label>Latin</label>
+              </div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block (click)="filtreNomFAM()" [outline]="aaz_famille == 0">
+              <div class="button-content">
+                <i [attr.class]="famIcon"></i>
+                <label>Famille</label>
+              </div>
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="types">
+    <h3>Type</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block (click)="filtreArbres()" [outline]="!arbre">
+            <div class="button-content">
+              <i class="mdi mdi-tree mdi-24px"></i>
+              <label>Arbre</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreConiferes()" [outline]="!conifere">
+            <div class="button-content">
+              <i class="mdi mdi-pine-tree mdi-24px"></i>
+              <label>Conifère</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreArbustes()" [outline]="!arbuste">
+            <div class="button-content">
+              <i class="mdi mdi-barley mdi-24px"></i>
+              <label>Arbuste</label>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  </div>
+
+  <div class="color">
+    <h3>Couleur de la corolle</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block outline (click)="filtreAucune()" [clear]="!clr_aucune" [outline]="clr_aucune">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#387ef5" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+              </svg>
+              <label>Aucune</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreRouge()" [clear]="!clr_rouge" [outline]="clr_rouge" >
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#e74c3c" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Rouge</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreRose()" [clear]="!clr_rose" [outline]="clr_rose">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ff6ca8" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Rose</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreOrange()" [clear]="!clr_orange" [outline]="clr_orange">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#e67e22" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Orange</label>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button block (click)="filtreBleu()" [clear]="!clr_bleu" [outline]="clr_bleu">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#387ef5" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Bleu</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreViolet()" [clear]="!clr_violet" [outline]="clr_violet">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ab69c6" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Violet</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreJaune()" [clear]="!clr_jaune" [outline]="clr_jaune">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#ffcf4b" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Jaune</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="filtreBlanc()" [clear]="!clr_blanc" [outline]="clr_blanc">
+            <div class="button-content">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#387ef5" d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              </svg>
+              <label>Blanc</label>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <button ion-button block (click)="applyFilters()">Appliquer les filtres</button>
+
+</ion-content>
