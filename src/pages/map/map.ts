@@ -52,7 +52,17 @@ export class MapPage {
    let alert = this.alertCtrl.create({
      title: 'À propos',
      subTitle: 'Réalisée par Dimitri Schweizer, Données fournies par Michel Juillard',
-     buttons: [{ text: 'Mettre à jour', handler: () => this.events.publish('update') }, 'OK']
+     buttons: [
+       {
+         text: 'Mettre à jour',
+         handler: () => {
+           this.events.publish('update');
+         }
+       },
+       {
+         text: 'Ok'
+       }
+     ]
    });
    alert.present();
  }
@@ -81,17 +91,20 @@ export class MapPage {
      select_arbres += " ) "
    }
 
+   console.log("Map: " + select_arbres);
+
    this.dbObject.executeSql(select_arbres, []).then((data) => {
+     // Suppression des anciens arbres sur la carte
+     if (this.markers != null) {
+       this.map.removeLayer(this.markers);
+     }
+
      this.arbres = [];
      if (data.rows.length > 0) {
        for (var i = 0; i < data.rows.length; i++) {
          this.arbres.push(data.rows.item(i));
        }
 
-       // Suppression des anciens arbres sur la carte
-       if (this.markers != null) {
-         this.map.removeLayer(this.markers);
-       }
        this.markers = L.markerClusterGroup();
 
        // Ajout des arbres sur la carte
