@@ -50,10 +50,7 @@ export class MyApp {
 
         // Ouverture et initialisation de la base de données
         sqlite.create({ name: "data.db", location: "default" })
-          .then((db: SQLiteObject) => {
-            this.dbObject = db;
-            this.initDB()}
-          )
+          .then((db: SQLiteObject) => this.initDB(db))
           .then(() => this.downloadIfUpdate())
           .then(() => {
             // Rafraichissement des pages
@@ -74,7 +71,9 @@ export class MyApp {
   }
 
   // Création des tables si celles-ci n'existent pas
-  initDB() {
+  initDB(db: SQLiteObject) {
+    this.dbObject = db;
+
     return new Promise((resolve, reject) => {
       let create_tb_essences = "CREATE TABLE IF NOT EXISTS essences (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
         "wp_id INTEGER, date REAL, nom TEXT, nom_latin TEXT, nom_alias TEXT, famille TEXT, " +
@@ -93,6 +92,7 @@ export class MyApp {
         .then(() => this.dbObject.executeSql(create_tb_images, {} as any))
         .then(() => {
           // Rafraichissement des pages
+          console.log("Tables were created");
           this.events.publish('refresh');
           resolve();
         })
@@ -149,6 +149,7 @@ export class MyApp {
           }
         });
       }, (error) => {
+        console.log(error);
         console.error("SQLite:", "Could not execute request");
       })
     });
